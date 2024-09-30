@@ -40,7 +40,7 @@ function calculateAverageDamagePerRound(){
                 }
                 break;
             case "Slashing":
-                if (weakname == "Shashing"){
+                if (weakname == "Slashing"){
                     avgdmg = avgdmg-weaknum;
                 }
                 break;
@@ -62,7 +62,7 @@ function calculateAverageDamagePerRound(){
                 }
                 break;
             case "Slashing":
-                if (weakname == "Shashing"){
+                if (weakname == "Slashing"){
                     avgdmg = avgdmg-weaknum;
                 }
                 break;
