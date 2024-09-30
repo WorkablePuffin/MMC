@@ -7,6 +7,7 @@
     <title Combat Calculations></title>
 </head>
 <body>
+    <script>"src = avgdmg.js"</script>
     <div id = "menu container">
         <nav>
             <ul>
@@ -32,28 +33,40 @@
                         <form id = "hitchange-form">
                             <label for = "skill-mod">Skill Modifier</label>
                             <input id ="skill-mod" type="text" required="">
+                            <br>
                             <label for = "enemy-ac">Enemy Armor Class</label>
                             <input id ="enemy-ac" type="text" required="">
+                            <br>
                             <label for = "circumstance-bonus">Circumstance Bonus</label>
                             <input id ="circumstance-bonus" type="text" required="">
+                            <br>
                             <label for = "status-bonus">Status Bonus</label>
                             <input id ="status-bonus" type="text" required="">
+                            <br>
                             <label for = "save-bonus">Save Bonus</label>
                             <input id ="save-bonus" type="text" required="">
+                            <br>
                             <label for = "item-bonus">Item Bonus</label>
                             <input id ="item-bonus" type="text" required="">
+                            <br>
                             <label for = "circumstance-penalty">Circumstance Penalty</label>
                             <input id ="circumstance-penalty" type="text" required="">
+                            <br>
                             <label for = "status-penalty">Status Penalty</label>
                             <input id ="status-penalty" type="text" required="">
+                            <br>
                             <label for = "item-penalty">Item Penalty</label>
                             <input id ="item-penalty" type="text" required="">
+                            <br>
                             <label for = "fortune-bonuses">Fortune Bonuses</label>
                             <input id ="fortune-bonuses" type="text" required="">
+                            <br>
                             <label for = "misfortune-bonuses">Misfortune Bonuses</label>
                             <input id ="misfortune-bonuses" type="text" required="">
+                            <br>
                             <label for = "number-of-attempts">Number of Attempts</label>
                             <input id ="number-of-attempts" type="text" required="">
+                            <br>
                             <button type="submit">Calculate Hit Chance</button>
                         </form>
 
@@ -62,31 +75,48 @@
                         <div class = "averageDPR-container">
                             <h2> Average DPR </h2>
                             <form id = "averageDPR-form">
-                                <label for = "damage-dice">Damage Dice</label>
-                                <input id ="damage-dice" type="text" required="">
+                                <label for = "damage-die-size">Damage Die Size (for testing, only import the number, e.g. 8 for d8)</label>
+                                <input id = "damage-die-size" name = "damage-die-size" type="number" required="">
+                                <br>
+                                <label for = "number-of-dice">Number of Damage Dice</label>
+                                <input id = "number-of-dice" name = "number-of-dice" type = "number" required = "">
+                                <br>
                                 <label for = "flat-bonus">Flat Bonus</label>
-                                <input id ="flat-bonus" type="text" required="">
-                                <label for = "crit-bonus">Crit Bonus</label>
-                                <input id ="crit-bonus" type="text" required="">
-                                <label for = "extra-bonus">Extra Bonus</label>
-                                <input id ="extra-bonus" type="text" required="">
-                                <label for = "enemy-weakness">Enemy Weakness</label>
-                                <input id ="enemy-weakness" type="text" required="">
-                                <label for = "enemy-resistance">Enemy Resistance</label>
-                                <input id ="enemy-resistance" type="text" required="">
-                                <button type="submit">Calculate DPR</button>
-                                
+                                <input id ="flat-bonus" name = "flat-bonus" type="number" required = "">
+                                <br>
+                                <label for = "extra-bonus">Extra Bonus (Note that this is the sum of all misc bonuses)</label>
+                                <input id = "extra-bonus" name = "extra-bonus" type="number" required = "">
+                                <br>
+                                <label for = "damage-type">Damage Type</label>
+                                <input id = "damage-type" name = "damage-type" type="text" required = "">
+                                <br>
+                                <label for = "enemy-weakness-name">Enemy Weakness Name</label>
+                                <input id ="enemy-weakness-name" name = "enemy-weakness-name" type="text" required="">
+                                <br>
+                                <label for = "enemy-weakness-num">Enemy Weakness Number</label>
+                                <input id = "enemy-weakness-num" name = "enemy-weakness-num" type="number" required = "">
+                                <br>
+                                <label for = "enemy-resistance-name">Enemy Resistance</label>
+                                <input id ="enemy-resistance-name" name = "enemy-resistance-name" type="text" required="">
+                                <br>
+                                <label for = "enemy-resistance-num">Enemy Resistance Name</label>
+                                <input id = "enemy-resistance-num" name = "enemy-resistance-num" type = "number" required="">
+                                <br>
+                                <label for = "crityesno">Crit? (check for yes, uncheck for no)</label>
+                                <input id = "crityesno" name = "crityesno" type="checkbox" unchecked>
+                                <br>
+                                <button id = "avgdmgbutton" name = "avgdmgbutton" type="submit">Calculate Average Damage</button>
                             </form>
                             <div class = "Hit Chance">
                                 <h2>Your Hit Chance</h2>
                             </div>
                             <div class = "average_dpr">
                                 <h2>Your Average DPR</h2>
+                                <span id = "avgdpr">0</span>
+                                <span id = "per round">per round</span>
                             </div>
                     </div>
-
                     </div>
-
                 </div>
         </div>
     </div>
