@@ -67,7 +67,6 @@ function calculateAverageDamagePerRound(){
                 }
                 break;
         }
-        document.querySelector('.Hit Chance').style.display = 'block';
         document.getElementById('#avgdpr').innerHTML = total;
     }
 }
