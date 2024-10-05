@@ -8,7 +8,7 @@ body
 
 nav 
 {
-  background-color: #3C2517;
+  background-color: #644117;
   padding: 30px;
 }
 
@@ -18,6 +18,13 @@ nav ul li a
   color: #FFEEBD; 
   border-radius: 50px;
 }
+
+a{
+  font-size: 2em;
+  justify-content: space-between;
+  margin-left:5em 
+}
+
 
 a:link 
 {
