@@ -8,26 +8,26 @@ body
 
 nav 
 {
-  background-color: #644117;
+  background-color: #3C2517;
   padding: 30px;
 }
 
 
 nav ul li a 
 {
-  color: #ddc283; 
+  color: #FFEEBD; 
   border-radius: 50px;
 }
 
 a:link 
 {
-    color:#ddc283;
+    color:#FFEEBD;
     text-decoration: none;
 }
 
 
   a:visited 
 {
-  color: #ddc283;
+  color: #FFEEBD;
   text-decoration: none;
 }
