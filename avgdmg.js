@@ -1,4 +1,5 @@
 window.onload = () =>
+    //TODO: integrate proper display and ensure that values are being passed properly; this code should work
     //called when the initial calculation button is clicked
     {
         document.getElementById('#avgdmgbutton').onclick = calculateAverageDamagePerRound;
@@ -20,28 +21,34 @@ function calculateAverageDamagePerRound(){
     let crit = document.getElementById('#crityesno').checked;
 
     //2nd-layer variables; constructed from imported values
-    let diemax;
-    diemax = diesize * dicenum;
+    let dieavg;
+    let factorialdie;
 
+    //calculates the average dice roll by taking the factorial and dividing it by the size of the die, then gets the average
+    //by multiplying the resulting number by the number of dice
+    factorialdie = factorial(diesize)/diesize
+    dieavg = factorialdie * dicenum;
+
+    //final return value
     let avgdmg;
-    
+
     //calculates final average damage without crit checked
     if (crit == false){
-        avgdmg = (diemax / 2) + flat + extra;
+        avgdmg = dieavg + flat + extra;
         switch(dmgtype){
             case "Bludgeoning":
                 if (weakname == "Bludgeoning"){
-                    avgdmg = avgdmg-weaknum;
+                    avgdmg = avgdmg+weaknum;
                 }
                 break;
             case "Piercing":
                 if (weakname == "Piercing"){
-                    avgdmg = avgdmg-weaknum;
+                    avgdmg = avgdmg+weaknum;
                 }
                 break;
             case "Slashing":
                 if (weakname == "Slashing"){
-                    avgdmg = avgdmg-weaknum;
+                    avgdmg = avgdmg+weaknum;
                 }
                 break;
         }
@@ -49,24 +56,38 @@ function calculateAverageDamagePerRound(){
 
     //calculates final average damage with crit checked
     else{
-        avgdmg = (((diemax/2) + flat + extra) * 2);
+        avgdmg = ((dieavg + flat + extra) * 2);
         switch(dmgtype){
             case "Bludgeoning":
                 if (weakname == "Bludgeoning"){
-                    avgdmg = avgdmg-weaknum;
+                    avgdmg = avgdmg+weaknum;
                 }
                 break;
             case "Piercing":
                 if (weakname == "Piercing"){
-                    avgdmg = avgdmg-weaknum;
+                    avgdmg = avgdmg+weaknum;
                 }
                 break;
             case "Slashing":
                 if (weakname == "Slashing"){
-                    avgdmg = avgdmg-weaknum;
+                    avgdmg = avgdmg+weaknum;
                 }
                 break;
         }
-        document.getElementById('#avgdpr').innerHTML = total;
+        document.getElementById('#avgdpr').innerHTML = avgdmg;
     }
+}
+
+//this function calculates the factorial of a number, used to calculate the average of dice
+function factorial(num){
+    //factorial of 0 and 1 are both 1
+    if(num == 0 || num == 1){
+        return 1;
+    }
+    //otherwise, loops
+    for (var i = num-1; i >= 1; i++){
+        num *= i;
+    }
+    //returns final factorial
+    return num;
 }
