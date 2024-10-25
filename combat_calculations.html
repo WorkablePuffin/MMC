@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="#">
     <title Combat Calculations></title>
 </head>
 <body>
-    <script src = avgdmg.js></script>
-    <script src = hitchance.js></script>
+  
     <div id = "menu container">
         <nav>
             <ul>
@@ -23,7 +23,7 @@
                     <a href="./class_optimizer.html"> Class Optimizer</a>
                 </il>
                 <il>
-                    <a href="./items.html"> Item Effect Calculation</h2></a>
+                    <a href="./items.html"> Item Effect Calculation</a>
                 </il>
             </ul>     
         </nav> 
@@ -86,7 +86,7 @@
                             <button type="submit" name="hitchancebutton" id="hitchancebutton">Calculate Hit Chance</button>
                         </form>
                     </div>
-                    <div class = "averageDPR-container"></div>
+                    <div class = "averageDPR-container">
                         <div class = "averageDPR-container">
                             <h2> Average DPR </h2>
                             <!-- dpr calculator form -->
@@ -135,21 +135,26 @@
                                 <input id = "crityesno" name = "crityesno" type="checkbox" unchecked>
                                 <br>
                                 <button id = "avgdmgbutton" name = "avgdmgbutton" type="submit">Calculate Average Damage</button>
+                                
                             </form>
                             <!-- hit chance display -->
-                            <div class = "Hit Chance">
+                            <div class = "average_hitchance">
                                 <h2>Your Hit Chance</h2>
+                                <span id = "avghc"></span>
+                                <span id = "percent">%</span>
                             </div>
                             <!-- average dpr display -->
                             <div class = "average_dpr">
-                                <h2>Your Average DPR</h2>
-                                <span id = "avgdpr"></span>
-                                <span id = "per round">per round</span>
+                                <h2>Your Average DPA</h2>
+                                <span id = "avgdpr"> </span>
+                                <span id = "perRound">damage per attack</span>
                             </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
-        </div>
-    </div>
+            </div>
+        </div> 
+<script src = "./avgdmg.js"></script>
+<script src = "./hitchance.js"></script>
 </body>
 </html>
