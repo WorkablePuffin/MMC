@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
@@ -29,16 +30,81 @@
             <div class = "classoptomizer-container">
                 <div class = "classoptomizer-calculator">
                     <form id = "classoptomizer-form">
-                        <label for = "class-input">Class Input</label>
-                        <input id ="class-input" type="text" required="">
-                        <label for = "level-input">Level Input</label>
-                        <input id ="level-input" type="text" required="">
-                        <label for = "ancestry_input">Ancestry Input</label>
-                        <input id ="ancestry_input" type="text" required="">
+                        <!-- todo: make dropdown selector -->
+                        <label for = "class-name">Class</label>
+                        <select id = "class-name" name = "class-name" required = "">
+                            <option value="Alchemist">Alchemist</option>
+                            <option value="Barbarian">Barbarian</option>
+                            <option value="Bard">Bard</option>
+                            <option value="Champion">Champion</option>
+                            <option value="Cleric">Cleric</option>
+                            <option value="Druid">Druid</option>
+                            <option value="Fighter">Fighter</option>
+                            <option value="Gunslinger">Gunslinger</option>
+                            <option value="Inventor">Inventor</option>
+                            <option value="Investigator">Investigator</option>
+                            <option value="Kineticist">Kineticist</option>
+                            <option value="Magus">Magus</option>
+                            <option value="Monk">Monk</option>
+                            <option value="Oracle">Oracle</option>
+                            <option value="Psychic">Psychic</option>
+                            <option value="Ranger">Ranger</option>
+                            <option value="Rogue">Rogue</option>
+                            <option value="Sorcerer">Sorcerer</option>
+                            <option value="Suggestion">Summoner</option>
+                            <option value="Swashbuckler">Swashbuckler</option>
+                            <option value="Thaumaturge">Thaumaturge</option>
+                            <option value="Witch">Witch</option>
+                            <option value="Wizard">Wizard</option> 
+                        </select>
+                        <br>
+                        <label for = "level-input">Level</label>
+                        <input id ="level-input" type="number" required="">
+                        <br>
+                        <!-- todo: make dropdown selector -->
+                        <label for = "ancestry-input">Ancestry</label>
+                        <select id ="ancestry-input" name="ancestry-input" required="">
+                            <option value="Dwarf">Dwarf</option>
+                            <option value="Elf">Elf</option>
+                            <option value="Gnome">Gnome</option>
+                            <option value="Goblin">Goblin</option>
+                            <option value="Halfling">Halfling</option>
+                            <option value="Human">Human</option>
+                            <option value="Leshy">Leshy</option>
+                            <option value="Orc">Orc</option>
+                            <option value="Athamaru">Athamaru</option>
+                            <option value="Azarketi">Azarketi</option>
+                            <option value="Catfolk">Catfolk</option>
+                            <option value="Centaur">Centaur</option>
+                            <option value="Fetchling">Fetchling</option>
+                            <option value="Gnoll">Gnoll</option>
+                            <option value="Grippli">Grippli</option>
+                            <option value="Hobgoblin">Hobgoblin</option>
+                            <option value="Kitsune">Kitsune</option>
+                            <option value="Kobold">Kobold</option>
+                            <option value="Lizardfolk">Lizardfolk</option>
+                            <option value="Merfolk">Merfolk</option>
+                            <option value="Minotaur">Minotaur</option>
+                            <option value="Nagaji">Nagaji</option>
+                            <option value="Ratfolk">Ratfolk</option>
+                            <option value="Tengu">Tengu</option>
+                            <option value="Vanara">Vanara</option>
+                        </select>
+                        <br>
+                        <!-- do later
                         <label for = "apex_item">Apex Item</label>
                         <input id ="apex_item" type="text" required="">
-                        <label for = "ancestry_input">Ancestry Input</label>
-                        <input id ="ancestry_input" type="text" required="">
+                        <br>
+                        -->
+                        <!-- todo: make dropdown selector -->
+                        <label for = "background-input">Background</label>
+                        <select id ="background-input" name = "background-input" required="">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+
+                        </select>
+                        <br>
                         <button type="submit">Class Optimization Suggestion</button>
                     </form>
 
