@@ -20,9 +20,9 @@ nav ul li a
 }
 
 a{
-  font-size: 2em;
+  font-size: 2vw;
   justify-content: space-between;
-  margin-left:5em 
+  margin-left:5vw; 
 }
 
 
