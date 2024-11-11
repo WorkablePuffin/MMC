@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +8,20 @@
     <link rel="stylesheet" href="main.css">
     <link rel="shortcut icon" href="#">
     <title Combat Calculations></title>
+    
 </head>
 <body>
   
-    <div id = "menu container">
+    <div class = "menu-container">
         <nav>
             <ul>
                 <il>
                     <a href="./index.html"> Home</a>
                 </il>
                 <il>
-                    <a href="./combat_calculations.html"> Combat Calculations</a>
+                    <a href="./combat_calculations.html" class="active"> Combat Calculations</a>
                 </il>
+                
                 <il>
                     <a href="./class_optimizer.html"> Class Optimizer</a>
                 </il>
@@ -27,18 +30,20 @@
                 </il>
             </ul>     
         </nav> 
+        
         <div class = "container">
-            <h1> Combat Calculations </h1>
+            <h1> </h1>
                 <div class = "hitchance-container">
                     <div class = "hitchance-calculator">
                         <h2> Hit Chance </h2>
+                        
                         <!-- Hit Chance form -->
                         <form id = "hitchance-form">
                             <!-- initial inputs -->
                             <label for = "skill-mod">Skill Modifier</label>
                             <input id ="skill-mod" type="number" required="">
                             <br>
-                            <label for = "enemy-ac">Enemy Armor Class</label>
+                            <label for = "enemy-ac">Enemy Armor Class </label>
                             <input id ="enemy-ac" type="number" required="">
                             <br>
                             <label for = "circumstance-bonus">Circumstance Bonus</label>
