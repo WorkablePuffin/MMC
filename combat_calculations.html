@@ -80,6 +80,9 @@
                                 <option value = "keeplow">Keep Lower</option>
                             </select>
                             <br>
+                            <label for = "agileyesno">Agile? (check for yes, uncheck for no)</label>
+                            <input id = "agileyesno" name = "agileyesno" type="checkbox" unchecked>
+                            <br>
                             <label for = "number-of-attempts">Number of Attempts</label>
                             <input id ="1attempt" type="radio" name="attemptnumber" value="1">
                             <label for = "1attempt">1</label>
@@ -93,7 +96,7 @@
                     </div>
                     <div class = "averageDPR-container">
                         <div class = "averageDPR-container">
-                            <h2> Average DPR </h2>
+                            <h2> Average DPA </h2>
                             <!-- dpr calculator form -->
                             <form id = "averageDPR-form">
                                 <!-- initial inputs -->
@@ -138,6 +141,18 @@
                                 <br>
                                 <label for = "crityesno">Crit? (check for yes, uncheck for no)</label>
                                 <input id = "crityesno" name = "crityesno" type="checkbox" unchecked>
+                                <br>
+                                <label for = "deadlyyesno">Deadly? (check for yes, uncheck for no)</label>
+                                <input id = "deadlyesno" name = "deadlyyesno" type="checkbox" unchecked>
+                                <br>
+                                <label for = "deadlysize">Deadly Die Size (if applicable)</label>
+                                <input id = "deadlysize" name = "deadlysize" type="number" required="">
+                                <br>
+                                <label for = "fatalyesno">Fatal? (check for yes, uncheck for no)</label>
+                                <input id = "fatalyesno" name = "fatalyesno" type="checkbox" unchecked>
+                                <br>
+                                <label for = "fatalsize">Fatal Die Size (if applicable)</label>
+                                <input id = "fatalsize" name = "fatalsize" type="number" required="">
                                 <br>
                                 <button id = "avgdmgbutton" name = "avgdmgbutton" type="submit">Calculate Average Damage</button>
                                 
