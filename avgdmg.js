@@ -15,24 +15,38 @@ document.getElementById ('averageDPR-form').addEventListener('submit', function 
     let resname = new String(document.getElementById('enemy-resistance-name').value);
     let resnum = parseFloat(document.getElementById('enemy-resistance-num').value);
     let crit = document.getElementById('crityesno').checked;
-
-    let num;
+    let fatal = document.getElementById('fatalyesno').checked;
+    let fatalsize = parseFloat(document.getElementById('fatalsize').value);
+    let deadly = document.getElementById('deadlyyesno').checked;
+    let deadlysize = parseFloat(document.getElementById('deadlysize').value);
 
     //2nd-layer variables; constructed from imported values
     let dieavg;
     let avgperdie;
+    let deadlyavg;
 
     //calculates the average dice roll by taking the factorial and dividing it by the size of the die, then gets the average
     //by multiplying the resulting number by the number of dice
-    avgperdie = (diesize+1)/2
-    dieavg = avgperdie * dicenum;
+    if (fatal == false){
+        avgperdie = (diesize+1)/2
+        dieavg = avgperdie * dicenum;
+    }
+    else{
+        diesize = fatalsize
+        avgperdie = (diesize+1)/2
+        dieavg = avgperdie * dicenum;
+    }
+
+    if (deadly == true){
+        deadlyavg = (deadlysize+1)/2;
+    }
 
     //calculate the results
-    let avgdmg = calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, weakname, weaknum, resname, resnum, crit, avgperdie, dieavg,num);
+    let avgdmg = calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, weakname, weaknum, resname, resnum, crit, avgperdie, dieavg, fatal, deadly, deadlyavg);
     //display the results
     document.getElementById('avgdpr').textContent = avgdmg;
 });
-function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, weakname, weaknum, resname, resnum, crit, avgperdie, dieavg)
+function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, weakname, weaknum, resname, resnum, crit, avgperdie, dieavg, fatal, deadly, deadlyavg)
 {
     //calculates final average damage without crit checked
         if (crit == false)
@@ -81,7 +95,148 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
             }
         }
 
-    //calculates final average damage with crit checked
+        //calculates final average with crit and fatal checked
+        else if (crit == true && fatal == true)
+        {
+            avgdmg = ((dieavg + flat + extra) * 2) + avgperdie;
+            switch(dmgtype){
+                case 'Bludgeoning':
+                    if (weakname === 'Bludgeoning')
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname === 'Bludgeoning')
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+                case 'Piercing':
+                    if (weakname === 'Piercing')
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname === 'Piercing')
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+                case "Slashing":
+                    if (weakname === "Slashing")
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname === "Slashing")
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+            }    
+        }
+
+        //calculates damage if crit and deadly are checked
+        else if (crit == true && deadly == true)
+            {
+                avgdmg = ((dieavg + flat + extra) * 2) + deadlyavg;
+                switch(dmgtype){
+                    case 'Bludgeoning':
+                        if (weakname === 'Bludgeoning')
+                        {
+                            avgdmg = avgdmg+weaknum;
+                        }
+                        if(resname === 'Bludgeoning')
+                        {
+                            avgdmg = avgdmg-resnum;
+                        }
+                        else{
+                            avgdmg = avgdmg;
+                        }
+                        break;
+                    case 'Piercing':
+                        if (weakname === 'Piercing')
+                        {
+                            avgdmg = avgdmg+weaknum;
+                        }
+                        if(resname === 'Piercing')
+                        {
+                            avgdmg = avgdmg-resnum;
+                        }
+                        else{
+                            avgdmg = avgdmg;
+                        }
+                        break;
+                    case "Slashing":
+                        if (weakname === "Slashing")
+                        {
+                            avgdmg = avgdmg+weaknum;
+                        }
+                        if(resname === "Slashing")
+                        {
+                            avgdmg = avgdmg-resnum;
+                        }
+                        else{
+                            avgdmg = avgdmg;
+                        }
+                        break;
+                }    
+            }
+
+         //calculates damage if all three are checked
+         else if (crit == true && deadly == true && fatal == true)
+            {
+                avgdmg = ((dieavg + flat + extra) * 2) + dieavg + deadlyavg;
+                switch(dmgtype){
+                    case 'Bludgeoning':
+                        if (weakname === 'Bludgeoning')
+                        {
+                            avgdmg = avgdmg+weaknum;
+                        }
+                        if(resname === 'Bludgeoning')
+                        {
+                            avgdmg = avgdmg-resnum;
+                        }
+                        else{
+                            avgdmg = avgdmg;
+                        }
+                        break;
+                    case 'Piercing':
+                        if (weakname === 'Piercing')
+                        {
+                            avgdmg = avgdmg+weaknum;
+                        }
+                        if(resname === 'Piercing')
+                        {
+                            avgdmg = avgdmg-resnum;
+                        }
+                        else{
+                            avgdmg = avgdmg;
+                        }
+                        break;
+                    case "Slashing":
+                        if (weakname === "Slashing")
+                        {
+                            avgdmg = avgdmg+weaknum;
+                        }
+                        if(resname === "Slashing")
+                        {
+                            avgdmg = avgdmg-resnum;
+                        }
+                        else{
+                            avgdmg = avgdmg;
+                        }
+                        break;
+                }    
+            }
+
+        //calculates final average damage with only crit checked; last case
         else
         {
             avgdmg = ((dieavg + flat + extra) * 2);
