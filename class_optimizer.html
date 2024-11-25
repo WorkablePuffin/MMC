@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-    <title Class Optimizer></title>
-     <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Optimizer</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
-    <div class = "menu-container">
+    <div class="menu-container">
         <nav>
             <ul>
-                <il>
-                    <a href="./index.html"> Home</a>
-                </il>
-                <il>
-                    <a href="./combat_calculations.html"> Combat Calculations</a>
-                </il>
-                <il>
-                    <a href="./class_optimizer.html"> Class Optimizer</a>
-                </il>
-                <il>
-                    <a href="./items.html"> Item Effect Calculation</h2></a>
-                </il>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./combat_calculations.html">Combat Calculations</a></li>
+                <li><a href="./class_optimizer.html">Class Optimizer</a></li>
+                <li><a href="./items.html">Item Effect Calculation</a></li>
             </ul>     
-        </nav> 
-        <div class = "container">
-           
-            <div class = "classoptomizer-container">
-                <div class = "classoptomizer-calculator">
-                    <form id = "classoptomizer-form">
-                        <!-- todo: make dropdown selector -->
-                        <label for = "class-name">Class</label>
-                        <select id = "class-name" name = "class-name" required = "">
+        </nav>
+        <div class="container">
+            <div class="classoptomizer-container">
+                <div class="classoptomizer-calculator">
+                    <form id="classoptomizer-form">
+                        <label for="class-name">Class</label>
+                        <select id="class-name" name="class-name" required>
                             <option value="Alchemist">Alchemist</option>
                             <option value="Barbarian">Barbarian</option>
                             <option value="Bard">Bard</option>
@@ -58,12 +60,11 @@
                             <option value="Wizard">Wizard</option> 
                         </select>
                         <br>
-                        <label for = "level-input">Level</label>
-                        <input id ="level-input" type="number" required="">
+                        <label for="level-input">Level</label>
+                        <input id="level-input" type="number" required>
                         <br>
-                        <!-- todo: make dropdown selector -->
-                        <label for = "ancestry-input">Ancestry</label>
-                        <select id ="ancestry-input" name="ancestry-input" required="">
+                        <label for="ancestry-input">Ancestry</label>
+                        <select id="ancestry-input" name="ancestry-input" required>
                             <option value="Dwarf">Dwarf</option>
                             <option value="Elf">Elf</option>
                             <option value="Gnome">Gnome</option>
@@ -89,30 +90,145 @@
                             <option value="Ratfolk">Ratfolk</option>
                             <option value="Tengu">Tengu</option>
                             <option value="Vanara">Vanara</option>
+                            <!-- Add all other options here -->
                         </select>
                         <br>
-                        <!-- do later
-                        <label for = "apex_item">Apex Item</label>
-                        <input id ="apex_item" type="text" required="">
-                        <br>
-                        -->
-                        <!-- todo: make dropdown selector -->
-                        <label for = "background-input">Background</label>
-                        <select id ="background-input" name = "background-input" required="">
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-
+                        <label for="background-input">Background</label>
+                        <select id="background-input" name="background-input" required>
+                            <option value="">Select a Background</option>
+                            <option value="Acrobat.json">Acrobat</option>
+                            <option value="Adept.json">Adept</option>
+                            <option value="Animal Whisperer.json">Animal Whisperer</option>
+                            <option value="Artisan.json">Artisan</option>
+                            <option value="Artist.json">Artist</option>
+                            <option value="Assassin.json">Assassin</option>
+                            <option value="Barkeep.json">Barkeep</option>
+                            <option value="Barrister.json">Barrister</option>
+                            <option value="Bounty Hunter.json">Bounty Hunter</option>
+                            <option value="Charlatan.json">Charlatan</option>
+                            <option value="Cultist.json">Cultist</option>
+                            <option value="Detective.json">Detective</option>
+                            <option value="Entertainer.json">Entertainer</option>
+                            <option value="Exile.json">Exile</option>
+                            <option value="Farmhand.json">Farmhand</option>
+                            <option value="Fisher.json">Fisher</option>
+                            <option value="Fortune Teller.json">Fortune Teller</option>
+                            <option value="Gambler.json">Gambler</option>
+                            <option value="Guard.json">Guard</option>
+                            <option value="Herbalist.json">Herbalist</option>
+                            <option value="Hermit.json">Hermit</option>
+                            <option value="Hunter.json">Hunter</option>
+                            <option value="Laborer.json">Laborer</option>
+                            <option value="Merchant.json">Merchant</option>
+                            <option value="Miner.json">Miner</option>
+                            <option value="Noble.json">Noble</option>
+                            <option value="Nomad.json">Nomad</option>
+                            <option value="Orphan.json">Orphan</option>
+                            <option value="Outlander.json">Outlander</option>
+                            <option value="Pirate.json">Pirate</option>
+                            <option value="Prisoner.json">Prisoner</option>
+                            <option value="Refugee.json">Refugee</option>
+                            <option value="Sailor.json">Sailor</option>
+                            <option value="Scholar.json">Scholar</option>
+                            <option value="Scout.json">Scout</option>
+                            <option value="Servant.json">Servant</option>
+                            <option value="Smuggler.json">Smuggler</option>
+                            <option value="Soldier.json">Soldier</option>
+                            <option value="Street Urchin.json">Street Urchin</option>
+                            <option value="Tinker.json">Tinker</option>
+                            <option value="Warrior.json">Warrior</option>
+                            <option value="Watchman.json">Watchman</option>
+                        </select>
+                        
                         </select>
                         <br>
                         <button type="submit">Class Optimization Suggestion</button>
                     </form>
-
                 </div>
-                <div class = "class_optimization"></div>
+                <div class="class_optimization">
                     <h2>Class Optimization</h2>
                 </div>
+                <div id="output"></div>
             </div>
+        </div>
+    </div>
+    <script>
+        // Folder containing JSON files
+        const jsonFolder = "Background";
+        const dropdown = document.getElementById("background-input");
+        const output = document.getElementById("output");
+
+        // List of available JSON files (manually or dynamically populated)
+        const jsonFiles = ["background1.json", "background2.json"]; // Example file list
+
+        // Populate the Background dropdown dynamically
+        jsonFiles.forEach(file => {
+            const option = document.createElement("option");
+            option.value = file;
+            option.textContent = file.replace(".json", "").replace(/_/g, " ");
+            dropdown.appendChild(option);
+        });
+
+        // Handle form submission
+        document.getElementById("classoptomizer-form").addEventListener("submit", event => {
+            event.preventDefault(); // Prevent default form submission
+
+            const selectedFile = dropdown.value;
+            if (!selectedFile) {
+                alert("Please select a background.");
+                return;
+            }
+
+            const filePath = `${jsonFolder}/${selectedFile}`;
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Could not load file: ${selectedFile}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayData(data);
+                })
+                .catch(error => {
+                    console.error("Error loading JSON:", error);
+                    alert("An error occurred. Check the console for details.");
+                });
+        });
+
+        // Function to display JSON data
+        function displayData(data) {
+            output.innerHTML = ""; // Clear previous output
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const name = document.createElement("h2");
+            name.textContent = data.name || "Unknown Name";
+            card.appendChild(name);
+
+            const abilities = document.createElement("p");
+            abilities.innerHTML = `<strong>Abilities:</strong> ${data.ability?.join(", ") || "None"}`;
+            card.appendChild(abilities);
+
+            const skills = document.createElement("p");
+            skills.innerHTML = `<strong>Skills:</strong> ${data.skill?.join(", ") || "None"}`;
+            card.appendChild(skills);
+
+            const feat = document.createElement("p");
+            feat.innerHTML = `<strong>Feat:</strong> <a href="${data.url || '#'}">${data.feat || "None"}</a>`;
+            card.appendChild(feat);
+
+            const summary = document.createElement("p");
+            summary.innerHTML = `<strong>Summary:</strong> ${data.summary || "No summary available."}`;
+            card.appendChild(summary);
+
+            output.appendChild(card);
+        }
+    </script>
+</body>
+</html>
+
         </div>
     </div>
 </body>
