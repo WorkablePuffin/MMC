@@ -9,7 +9,7 @@ body
 nav 
 {
   background-color: #644117;
-  padding: 30px;
+  padding: 45px;
   border-bottom-style: solid;
   border-color:#a93434;
   border-width:  10px;
@@ -43,10 +43,26 @@ nav
   border-bottom: 5px solid #FFEEBD;
 }
 
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+ }
+ 
+
+
+ nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+ }
+ 
+
 nav ul li a 
 {
+  
   color: #FFEEBD; 
-  border-radius: 50px;
+ 
 }
 
 h2{
