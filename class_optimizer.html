@@ -67,7 +67,7 @@
                         <select id="ancestry-input" name="ancestry-input" required>
                             <option value="">--Select an Ancestry--</option>
                             <option value="Dwarf">Dwarf</option>
-                            <option value="Elf.json:1">Elf</option>
+                            <option value="Elf">Elf</option>
                             <option value="Gnome">Gnome</option>
                             <option value="Goblin">Goblin</option>
                             <option value="Halfling">Halfling</option>
@@ -83,7 +83,6 @@
                         <br>
                         <label for="background-input">Background</label>
                         <select id="background-input" name="background-input" required>
-                            <option value="">Select a Background</option>
                             <option value="">Select a Background</option>
                             <option value="Acrobat.json">Acrobat</option>
                             <option value="Adept.json">Adept</option>
@@ -155,7 +154,7 @@
                 return;
             }
 
-            const ancestryPath = `${ancestryFolder}/${selectedAncestry}.json`;
+           const ancestryPath = `${ancestryFolder}/${selectedAncestry}`;
             fetch(ancestryPath)
                 .then(response => {
                     if (!response.ok) {
