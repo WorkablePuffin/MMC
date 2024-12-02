@@ -58,7 +58,7 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 1)
+                    if(resname == 1)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -71,7 +71,7 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 2)
+                    if(resname == 2)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -80,11 +80,11 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                     }
                     break;
                 case 3:
-                    if (weakname === 3)
+                    if (weakname == 3)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 3)
+                    if(resname == 3)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -100,12 +100,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
         {
             avgdmg = ((dieavg + flat + extra) * 2) + avgperdie;
             switch(dmgtype){
-                case 'Bludgeoning':
-                    if (weakname === 'Bludgeoning')
+                case 1:
+                    if (weakname == 1)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 'Bludgeoning')
+                    if(resname == 1)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -113,12 +113,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-                case 'Piercing':
-                    if (weakname === 'Piercing')
+                case 2:
+                    if (weakname == 2)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 'Piercing')
+                    if(resname == 2)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -126,12 +126,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-                case "Slashing":
-                    if (weakname === "Slashing")
+                case 3:
+                    if (weakname == 3)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === "Slashing")
+                    if(resname == 3)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -139,54 +139,54 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-            }    
+            }
         }
 
         //calculates damage if crit and deadly are checked
         else if (crit == true && deadly == true)
             {
                 avgdmg = ((dieavg + flat + extra) * 2) + deadlyavg;
-                switch(dmgtype){
-                    case 'Bludgeoning':
-                        if (weakname === 'Bludgeoning')
-                        {
-                            avgdmg = avgdmg+weaknum;
-                        }
-                        if(resname === 'Bludgeoning')
-                        {
-                            avgdmg = avgdmg-resnum;
-                        }
-                        else{
-                            avgdmg = avgdmg;
-                        }
-                        break;
-                    case 'Piercing':
-                        if (weakname === 'Piercing')
-                        {
-                            avgdmg = avgdmg+weaknum;
-                        }
-                        if(resname === 'Piercing')
-                        {
-                            avgdmg = avgdmg-resnum;
-                        }
-                        else{
-                            avgdmg = avgdmg;
-                        }
-                        break;
-                    case "Slashing":
-                        if (weakname === "Slashing")
-                        {
-                            avgdmg = avgdmg+weaknum;
-                        }
-                        if(resname === "Slashing")
-                        {
-                            avgdmg = avgdmg-resnum;
-                        }
-                        else{
-                            avgdmg = avgdmg;
-                        }
-                        break;
-                }    
+               switch(dmgtype){
+                case 1:
+                    if (weakname == 1)
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname == 1)
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+                case 2:
+                    if (weakname == 2)
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname == 2)
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+                case 3:
+                    if (weakname == 3)
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname == 3)
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+            }
             }
 
          //calculates damage if all three are checked
@@ -194,46 +194,46 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
             {
                 avgdmg = ((dieavg + flat + extra) * 2) + dieavg + deadlyavg;
                 switch(dmgtype){
-                    case 'Bludgeoning':
-                        if (weakname === 'Bludgeoning')
-                        {
-                            avgdmg = avgdmg+weaknum;
-                        }
-                        if(resname === 'Bludgeoning')
-                        {
-                            avgdmg = avgdmg-resnum;
-                        }
-                        else{
-                            avgdmg = avgdmg;
-                        }
-                        break;
-                    case 'Piercing':
-                        if (weakname === 'Piercing')
-                        {
-                            avgdmg = avgdmg+weaknum;
-                        }
-                        if(resname === 'Piercing')
-                        {
-                            avgdmg = avgdmg-resnum;
-                        }
-                        else{
-                            avgdmg = avgdmg;
-                        }
-                        break;
-                    case "Slashing":
-                        if (weakname === "Slashing")
-                        {
-                            avgdmg = avgdmg+weaknum;
-                        }
-                        if(resname === "Slashing")
-                        {
-                            avgdmg = avgdmg-resnum;
-                        }
-                        else{
-                            avgdmg = avgdmg;
-                        }
-                        break;
-                }    
+                case 1:
+                    if (weakname == 1)
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname == 1)
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+                case 2:
+                    if (weakname == 2)
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname == 2)
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+                case 3:
+                    if (weakname == 3)
+                    {
+                        avgdmg = avgdmg+weaknum;
+                    }
+                    if(resname == 3)
+                    {
+                        avgdmg = avgdmg-resnum;
+                    }
+                    else{
+                        avgdmg = avgdmg;
+                    }
+                    break;
+            }
             }
 
         //calculates final average damage with only crit checked; last case
@@ -241,12 +241,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
         {
             avgdmg = ((dieavg + flat + extra) * 2);
             switch(dmgtype){
-                case 'Bludgeoning':
-                    if (weakname === 'Bludgeoning')
+                case 1:
+                    if (weakname == 1)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 'Bludgeoning')
+                    if(resname == 1)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -254,12 +254,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-                case 'Piercing':
-                    if (weakname === 'Piercing')
+                case 2:
+                    if (weakname == 2)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 'Piercing')
+                    if(resname == 2)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -267,12 +267,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-                case "Slashing":
-                    if (weakname === "Slashing")
+                case 3:
+                    if (weakname == 3)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === "Slashing")
+                    if(resname == 3)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -280,7 +280,7 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-            }    
+            }
         }
     return avgdmg;
 }
