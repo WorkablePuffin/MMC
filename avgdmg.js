@@ -9,10 +9,10 @@ document.getElementById ('averageDPR-form').addEventListener('submit', function 
     let dicenum = parseFloat(document.getElementById('number-of-dice').value);
     let flat = parseFloat(document.getElementById('flat-bonus').value);
     let extra = parseFloat(document.getElementById('extra-bonus').value);
-    let dmgtype = new String(document.getElementById('damage-type').value);
-    let weakname = new String(document.getElementById('enemy-weakness-name').value);
+    let dmgtype = parseFloat(document.getElementById('damage-type').value);
+    let weakname = parseFloat(document.getElementById('enemy-weakness-name').value);
     let weaknum = parseFloat(document.getElementById('enemy-weakness-num').value);
-    let resname = new String(document.getElementById('enemy-resistance-name').value);
+    let resname = parseFloat(document.getElementById('enemy-resistance-name').value);
     let resnum = parseFloat(document.getElementById('enemy-resistance-num').value);
     let crit = document.getElementById('crityesno').checked;
     let fatal = document.getElementById('fatalyesno').checked;
@@ -53,12 +53,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
         {
             avgdmg = dieavg + flat + extra;
             switch(dmgtype){
-                case 'Bludgeoning':
-                    if (weakname === 'Bludgeoning')
+                case 1:
+                    if (weakname == 1)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 'Bludgeoning')
+                    if(resname === 1)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -66,12 +66,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-                case 'Piercing':
-                    if (weakname === 'Piercing')
+                case 2:
+                    if (weakname == 2)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 'Piercing')
+                    if(resname === 2)
                     {
                         avgdmg = avgdmg-resnum;
                     }
@@ -79,12 +79,12 @@ function calculateAverageDamagePerRound(diesize, dicenum, flat, extra, dmgtype, 
                         avgdmg = avgdmg;
                     }
                     break;
-                case 'Slashing':
-                    if (weakname === 'Slashing')
+                case 3:
+                    if (weakname === 3)
                     {
                         avgdmg = avgdmg+weaknum;
                     }
-                    if(resname === 'Slashing')
+                    if(resname === 3)
                     {
                         avgdmg = avgdmg-resnum;
                     }
