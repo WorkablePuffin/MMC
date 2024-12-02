@@ -1,6 +1,6 @@
 document.getElementById ('itemeffect-form').addEventListener('submit', function (e)
 {
-    e.preventDefault;
+    e.preventDefault();
 
     let item = parseFloat(document.getElementById('item-type'));
     let numberofitems = parseFloat(document.getElementById('number-being-used'));
