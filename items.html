@@ -30,16 +30,23 @@
                 <div class = "itemeffect-container">
                     <div class = "itemeffect-calculator">
                         <form id = "classoptomizer-form">
-                            <label for = "item-type">Item Type</label>
-                            <input id ="item-type" type="text" required="">
-                            <label for = "item-success-chance">Item Success Chance</label>
-                            <input id ="item-success-chance" type="text" required="">
-                            <label for = "item-output">Item Output</label>
-                            <input id ="item-output" type="text" required="">
+                            <label for = "item-type">Item</label>
+                            <select id ="item-type" name="item-type required="">
+                                <option value = "1">Minor Healing Potion</option>
+                                <option value = "2">Lesser Healing Potion</option>
+                                <option value = "3">Moderate Healing Potion</option>
+                                <option value = "4">Greater Healing Potion</option>
+                                <option value = "5">Major Healing Potion</option>
+                                <option value = "6">Minor Elixir of Life</option>
+                                <option value = "7">Lesser Elixir of Life</option>
+                                <option value = "8">Moderate Elixir of Life</option>
+                                <option value = "9">Greater Elixir of Life</option>
+                                <option value = "10">Major Elixir of Life/option>
+                            </select>
                             <label for = "number-being-used">Number Being Used</label>
-                            <input id ="number-being-used" type="text" required="">
-                            <label for = "potential_bonus">Potential Bonus</label>
-                            <input id ="potential_bonus" type="text" required="">
+                            <input id ="number-being-used" type="number" required="">
+                            <label for = "userhp">Current HP</label>
+                            <input id ="potential_bonus" type="number" required="">
                             <button type="submit"> Calculate Item Effect</button>
                         </form>
                     </div>
