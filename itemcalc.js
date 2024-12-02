@@ -2,9 +2,9 @@ document.getElementById ('itemeffect-form').addEventListener('submit', function 
 {
     e.preventDefault();
 
-    let item = parseFloat(document.getElementById('item-type'));
-    let numberofitems = parseFloat(document.getElementById('number-being-used'));
-    let currentHP = parseFloat(document.getElementById('userhp'));
+    let item = parseFloat(document.getElementById('item-type').value);
+    let numberofitems = parseFloat(document.getElementById('number-being-used').value);
+    let currentHP = parseFloat(document.getElementById('userhp').value);
 
     let hphealed = calculateHPHealed(item, numberofitems, currentHP);
 
