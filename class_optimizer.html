@@ -6,29 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Optimizer</title>
     <link rel="stylesheet" href="main.css">
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 16px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .card h2 {
-            margin-top: 0;
-        }
-    </style>
 </head>
 <body>
-    <div class="menu-container">
+   <div class = "menu-container">
         <nav>
             <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./combat_calculations.html">Combat Calculations</a></li>
-                <li><a href="./class_optimizer.html">Class Optimizer</a></li>
-                <li><a href="./items.html">Item Effect Calculation</a></li>
+                <li>
+                    <a href="./index.html"> Home</a>
+                </li>
+                <li>
+                    <a href="./combat_calculations.html"> Combat Calculations</a>
+                </li>
+                <li>
+                    <a href="./class_optimizer.html"> Class Optimizer</a>
+                </li>
+                <li>
+                    <a href="./items.html"> Item Effect Calculation</h2></a>
+                </li>
             </ul>     
-        </nav>
+        </nav> 
         <div class="container">
             <div class="classoptomizer-container">
                 <div class="classoptomizer-calculator">
@@ -139,7 +135,7 @@
                             <option value="Warrior.json">Warrior</option>
                             <option value="Watchman.json">Watchman</option>
                         </select>
-                        
+
                         </select>
                         <br>
                         <button type="submit">Class Optimization Suggestion</button>
@@ -179,11 +175,11 @@
                 return;
             }
 
-            const filePath = ${jsonFolder}/${selectedFile};
+            const filePath = `${jsonFolder}/${selectedFile}`;
             fetch(filePath)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(Could not load file: ${selectedFile});
+                        throw new Error(`Could not load file: ${selectedFile}`);
                     }
                     return response.json();
                 })
@@ -203,28 +199,34 @@
             const card = document.createElement("div");
             card.className = "card";
 
-            const name = document.createElement("h2");
+            const name = document.createElement("h1");
             name.textContent = data.name || "Unknown Name";
             card.appendChild(name);
 
             const abilities = document.createElement("p");
-            abilities.innerHTML = <strong>Abilities:</strong> ${data.ability?.join(", ") || "None"};
+            abilities.innerHTML = `<strong>Abilities:</strong> ${data.ability?.join(", ") || "None"}`;
             card.appendChild(abilities);
 
             const skills = document.createElement("p");
-            skills.innerHTML = <strong>Skills:</strong> ${data.skill?.join(", ") || "None"};
+            skills.innerHTML = `<strong>Skills:</strong> ${data.skill?.join(", ") || "None"}`;
             card.appendChild(skills);
 
             const feat = document.createElement("p");
-            feat.innerHTML = <strong>Feat:</strong> <a href="${data.url || '#'}">${data.feat || "None"}</a>;
+            feat.innerHTML = `<strong>Feat:</strong> <a href="${data.url || '#'}">${data.feat || "None"}</a>`;
+            feat.innerHTML = `<strong>Feat:</strong> <p href="${data.url || '#'}">${data.feat || "None"}</p>`;
             card.appendChild(feat);
 
             const summary = document.createElement("p");
-            summary.innerHTML = <strong>Summary:</strong> ${data.summary || "No summary available."};
+            summary.innerHTML = `<strong>Summary:</strong> ${data.summary || "No summary available."}`;
             card.appendChild(summary);
 
             output.appendChild(card);
         }
     </script>
+</body>
+</html>
+
+        </div>
+    </div>
 </body>
 </html>
