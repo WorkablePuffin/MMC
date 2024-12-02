@@ -17,6 +17,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 1
             let flat = 0
             avg = ((dice*4.5)+flat) * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -24,6 +25,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 2
             let flat = 5
             avg = ((dice*4.5)+flat) * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -31,6 +33,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 3
             let flat = 10
             avg = ((dice*4.5)+flat) * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -38,6 +41,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 6
             let flat = 20
             avg = ((dice*4.5)+flat) * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -45,6 +49,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 8
             let flat = 30
             avg = ((dice*4.5)+flat) * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -52,6 +57,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 1
             let flat = 0
             avg = (dice*3.5)+flat * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -59,12 +65,14 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 3
             let flat = 6
             avg = (dice*3.5)+flat * numberofitems
+            alert(avg + " HP Healed")
             return avg
         }
         case 8: {
             let dice = 5
             let flat = 18
             avg = (dice*3.5)+flat * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -72,6 +80,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 7
             let flat = 21
             avg = (dice*3.5)+flat * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -79,6 +88,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 8
             let flat = 21
             avg = (dice*3.5)+flat * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
@@ -86,6 +96,7 @@ function calculateHPHealed(item, numberofitems, currentHP){
             let dice = 10
             let flat = 27
             avg = (dice*3.5)+flat * numberofitems
+            alert(avg + " HP Healed")
             return avg
             break
         }
