@@ -84,8 +84,7 @@
                         <!-- Background Dropdown -->
                         <label for="background-input">Background</label>
                         <select id="background-input" name="background-input" required>
-                        <option value="Acrobat.json">Acrobat</option>
-                            <option value="Adept.json">Adept</option>
+                           <option value="Adept.json">Adept</option>
                             <option value="Animal Whisperer.json">Animal Whisperer</option>
                             <option value="Artisan.json">Artisan</option>
                             <option value="Artist.json">Artist</option>
@@ -125,7 +124,7 @@
                             <option value="Street Urchin.json">Street Urchin</option>
                             <option value="Tinker.json">Tinker</option>
                             <option value="Warrior.json">Warrior</option>
-                            <option value="Watchman.json">Watchman</option>  
+                            <option value="Watchman.json">Watchman</option> 
                         </select>
                         
                         <br>
@@ -139,7 +138,7 @@
     </div>
     <script>
         // Folder paths for JSON files
-        const ancestryFolder = "Ancestry"; 
+        const ancestryFolder = "Ancestry";
         const backgroundFolder = "Background";
 
         // Form elements
@@ -183,23 +182,27 @@
         });
 
         // Display Ancestry Data
-        function displayAncestryData(data) {
-            const card = document.createElement("div");
-            card.className = "card";
+      function displayAncestryData(data) {
+        const card = document.createElement("div");
+        card.className = "card";
 
-            const name = document.createElement("h2");
-            name.textContent = data.name || "Unknown Ancestry";
-            card.appendChild(name);
+        const name = document.createElement("h2");
+        name.textContent = data.name || "Unknown Ancestry";
+        card.appendChild(name);
 
-            const hp = document.createElement("p");
-            hp.innerHTML = `<strong>HP:</strong> ${data.hp || "Unknown"}`;
-            card.appendChild(hp);
+        const hp = document.createElement("p");
+        hp.innerHTML = `<strong>HP:</strong> ${data.hp || "Unknown"}`;
+        card.appendChild(hp);
 
-            const traits = document.createElement("p");
-            traits.innerHTML = `<strong>Traits:</strong> ${data.trait?.join(", ") || "None"}`;
-            card.appendChild(traits);
+        const traits = document.createElement("p");
+        traits.innerHTML = `<strong>Traits:</strong> ${data.trait?.join(", ") || "None"}`;
+        card.appendChild(traits);
 
-            outputDiv.appendChild(card);
+        const abilities = document.createElement("p");
+        abilities.innerHTML = `<strong>Abilities:</strong> ${data.ability?.join(", ") || "None"}`;
+        card.appendChild(abilities);
+
+        outputDiv.appendChild(card);
         }
 
         // Display Background Data
