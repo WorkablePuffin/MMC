@@ -27,12 +27,13 @@
                 <li><a href="./combat_calculations.html">Combat Calculations</a></li>
                 <li><a href="./class_optimizer.html">Class Optimizer</a></li>
                 <li><a href="./items.html">Item Effect Calculation</a></li>
-            </ul>
+            </ul>     
         </nav>
         <div class="container">
             <div class="classoptomizer-container">
                 <div class="classoptomizer-calculator">
                     <form id="classoptomizer-form">
+                        <!-- Class Dropdown -->
                         <label for="class-name">Class</label>
                         <select id="class-name" name="class-name" required>
                             <option value="Alchemist">Alchemist</option>
@@ -57,15 +58,18 @@
                             <option value="Swashbuckler">Swashbuckler</option>
                             <option value="Thaumaturge">Thaumaturge</option>
                             <option value="Witch">Witch</option>
-                            <option value="Wizard">Wizard</option>  
+                            <option value="Wizard">Wizard</option> 
                         </select>
                         <br>
+                        
+                        <!-- Level Input -->
                         <label for="level-input">Level</label>
                         <input id="level-input" type="number" required>
                         <br>
+                        
+                        <!-- Ancestry Dropdown -->
                         <label for="ancestry-input">Ancestry</label>
                         <select id="ancestry-input" name="ancestry-input" required>
-                            <option value="">--Select an Ancestry--</option>
                             <option value="Dwarf">Dwarf</option>
                             <option value="Elf">Elf</option>
                             <option value="Gnome">Gnome</option>
@@ -74,17 +78,13 @@
                             <option value="Human">Human</option>
                             <option value="Leshy">Leshy</option>
                             <option value="Orc">Orc</option>
-                            <option value="Lizardfolk">Lizardfolk</option>
-                            <option value="Athamaru">Athamaru</option>
-                            <option value="Azarketi">Azarketi</option>
-                            <option value="Catfolk">Catfolk</option>
-                            <!-- Add any new ancestry here -->
                         </select>
                         <br>
+                        
+                        <!-- Background Dropdown -->
                         <label for="background-input">Background</label>
                         <select id="background-input" name="background-input" required>
-                            <option value="">Select a Background</option>
-                         <option value="Acrobat.json">Acrobat</option>
+                        <option value="Acrobat.json">Acrobat</option>
                             <option value="Adept.json">Adept</option>
                             <option value="Animal Whisperer.json">Animal Whisperer</option>
                             <option value="Artisan.json">Artisan</option>
@@ -125,84 +125,105 @@
                             <option value="Street Urchin.json">Street Urchin</option>
                             <option value="Tinker.json">Tinker</option>
                             <option value="Warrior.json">Warrior</option>
-                            <option value="Watchman.json">Watchman</option> 
+                            <option value="Watchman.json">Watchman</option>  
                         </select>
+                        
                         <br>
                         <button type="submit">Class Optimization Suggestion</button>
                     </form>
                 </div>
-                <div class="class_optimization">
-                    <h2>Class Optimization</h2>
-                </div>
+                
                 <div id="output"></div>
             </div>
         </div>
     </div>
     <script>
-        // Folder containing ancestry JSON files
-        const ancestryFolder = "Ancestry";
-        const ancestryDropdown = document.getElementById("ancestry-input");
-        const ancestryOutput = document.getElementById("output");
+        // Folder paths for JSON files
+        const ancestryFolder = "Ancestry"; 
+        const backgroundFolder = "Background";
 
-        // Handle form submission for ancestries
-        document.getElementById("classoptomizer-form").addEventListener("submit", event => {
-            event.preventDefault(); // Prevent default form submission
+        // Form elements
+        const ancestryDropdown = document.getElementById("ancestry-input");
+        const backgroundDropdown = document.getElementById("background-input");
+        const outputDiv = document.getElementById("output");
+
+        // Handle form submission
+        document.getElementById("classoptomizer-form").addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent form submission
 
             const selectedAncestry = ancestryDropdown.value;
-            if (!selectedAncestry) {
-                alert("Please select an ancestry.");
+            const selectedBackground = backgroundDropdown.value;
+
+            if (!selectedAncestry || !selectedBackground) {
+                alert("Please select both an ancestry and a background.");
                 return;
             }
 
-            const ancestryPath = `${ancestryFolder}/${selectedAncestry}.json`;
-            fetch(ancestryPath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Could not load file: ${selectedAncestry}`);
-                    }
+            outputDiv.innerHTML = ""; // Clear previous output
+
+            try {
+                // Fetch and display Ancestry data
+                const ancestryData = await fetch(`${ancestryFolder}/${selectedAncestry}.json`).then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${selectedAncestry}`);
                     return response.json();
-                })
-                .then(data => {
-                    displayAncestryData(data);
-                })
-                .catch(error => {
-                    console.error("Error loading ancestry JSON:", error);
-                    alert("An error occurred. Check the console for details.");
                 });
+                displayAncestryData(ancestryData);
+
+                // Fetch and display Background data
+                const backgroundData = await fetch(`${backgroundFolder}/${selectedBackground}`).then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${selectedBackground}`);
+                    return response.json();
+                });
+                displayBackgroundData(backgroundData);
+
+            } catch (error) {
+                console.error("Error loading data:", error.message);
+                alert(`An error occurred: ${error.message}`);
+            }
         });
 
-        // Function to display ancestry JSON data
+        // Display Ancestry Data
         function displayAncestryData(data) {
-            ancestryOutput.innerHTML = ""; // Clear previous output
-
             const card = document.createElement("div");
             card.className = "card";
 
             const name = document.createElement("h2");
-            name.textContent = data.name || "Unknown Name";
+            name.textContent = data.name || "Unknown Ancestry";
             card.appendChild(name);
-
-            const abilities = document.createElement("p");
-            abilities.innerHTML = `<strong>Ability Score Increases:</strong> ${data.abilityScores?.join(", ") || "None"}`;
-            card.appendChild(abilities);
 
             const hp = document.createElement("p");
             hp.innerHTML = `<strong>HP:</strong> ${data.hp || "Unknown"}`;
             card.appendChild(hp);
 
-            const ability = document.createElement("p");
-            ability.innerHTML = `<strong>Abilities:</strong> ${data.ability?.join(", ") || "None"}`;
-            card.appendChild(ability);
+            const traits = document.createElement("p");
+            traits.innerHTML = `<strong>Traits:</strong> ${data.trait?.join(", ") || "None"}`;
+            card.appendChild(traits);
 
-            const abilityFlaw = document.createElement("p");
-            abilityFlaw.innerHTML = `<strong>Ability Flaws:</strong> ${data.ability_flaw?.join(", ") || "None"}`;
-            card.appendChild(abilityFlaw);
+            outputDiv.appendChild(card);
+        }
 
-            const trait = document.createElement("p");
-            trait.innerHTML = `<strong>Traits:</strong> ${data.trait?.join(", ") || "None"}`;
-            card.appendChild(trait);
+        // Display Background Data
+        function displayBackgroundData(data) {
+            const card = document.createElement("div");
+            card.className = "card";
 
-            ancestryOutput.appendChild(card);
+            const name = document.createElement("h2");
+            name.textContent = data.name || "Unknown Background";
+            card.appendChild(name);
+
+            const abilityIncreases = document.createElement("p");
+            abilityIncreases.innerHTML = `<strong>Ability Increases:</strong> ${data.ability?.join(", ") || "None"}`;
+            card.appendChild(abilityIncreases);
+
+            const skills = document.createElement("p");
+            skills.innerHTML = `<strong>Skills:</strong> ${data.skill?.join(", ") || "None"}`;
+            card.appendChild(skills);
+
+            const features = document.createElement("p");
+            features.innerHTML = `<strong>Features:</strong> ${data.feature?.join(", ") || "None"}`;
+            card.appendChild(features);
+
+            outputDiv.appendChild(card);
         }
     </script>
 </body>
