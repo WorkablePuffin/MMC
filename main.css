@@ -32,7 +32,7 @@ nav
 .hitchance-container{
   text-align: center;
 }
-.itemeffect-container{
+.container{
   text-align: center;
 }
 .menu-container a:hover{
@@ -42,6 +42,7 @@ nav
 .menu-container a.active{
   border-bottom: 5px solid #FFEEBD;
 }
+
 
 
 nav ul {
